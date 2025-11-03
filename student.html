@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MCBÜ Öğrenci Portalı - CV Yönetimi, Ders Seçimi, Staj Başvurusu">
+    <title>Öğrenci Portalı - MCBÜ Kariyer Platformu</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="cbü_logo.png">
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="cbü_logo.png" alt="MCBÜ Logo">
+                Manisa Celal Bayar Üniversitesi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="student.html">Öğrenci Portalı</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="company.html">Şirket Portalı</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="university.html">Üniversite Portalı</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Hakkında</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <section class="hero-section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center hero-content">
+                    <h1 class="hero-title" style="font-size: 2.5rem;">
+                        <i class="fas fa-user-graduate me-3"></i>Öğrenci Portalı
+                    </h1>
+                    <p class="hero-subtitle">CV'nizi yönetin, derslere başvurun, staj fırsatlarını keşfedin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROFİL BÖLÜMÜ
+         ============================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="profile-name">Ferhat Baydır</h3>
+                        <p class="profile-role">Bilgisayar Mühendisliği</p>
+                        <p style="color: var(--text-light);">
+                            <i class="fas fa-envelope me-2"></i>ferhat.baydir@mcbu.edu.tr
+                        </p>
+                        <p style="color: var(--text-light);">
+                            <i class="fas fa-phone me-2"></i>+90 555 123 4567
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-chart-line me-2"></i>Hızlı İstatistikler
+                        </h4>
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">3</div>
+                                <div style="color: var(--text-light);">Kayıtlı Ders</div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">2</div>
+                                <div style="color: var(--text-light);">Aktif Başvuru</div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">5</div>
+                                <div style="color: var(--text-light);">Sertifika</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 TAB MENÜ
+                 ============================================ -->
+            <ul class="nav nav-tabs" id="studentTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="cv-tab" data-bs-toggle="tab" data-bs-target="#cv" type="button">
+                        <i class="fas fa-file-alt me-2"></i>CV Yönetimi
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses" type="button">
+                        <i class="fas fa-book me-2"></i>Dersler
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="internship-tab" data-bs-toggle="tab" data-bs-target="#internship" type="button">
+                        <i class="fas fa-briefcase me-2"></i>Staj Başvurusu
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications" type="button">
+                        <i class="fas fa-bell me-2"></i>Bildirimler
+                        <span class="badge bg-danger ms-1">3</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- ============================================
+                 TAB İÇERİKLERİ
+                 ============================================ -->
+            <div class="tab-content mt-4" id="studentTabsContent">
+                
+                <!-- ============================================
+                     CV YÖNETİMİ
+                     ============================================ -->
+                <div class="tab-pane fade show active" id="cv" role="tabpanel">
+                    <!-- Otomatik Öneri Sistemi -->
+                    <div class="alert alert-custom" style="background: linear-gradient(135deg, var(--accent-color) 0%, #FFD700 100%); border: none; padding: 1.5rem; margin-bottom: 2rem;">
+                        <div class="d-flex align-items-center">
+                            <div style="font-size: 2.5rem; margin-right: 1.5rem;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h5 style="color: var(--text-dark); margin-bottom: 0.5rem; font-weight: 700;">
+                                    <i class="fas fa-robot me-2"></i>Kişiselleştirilmiş Ders Önerileri
+                                </h5>
+                                <p style="margin: 0; color: var(--text-dark);">
+                                    Sistem CV'nizdeki yetenekleri analiz etti. Size özel ders önerileri:
+                                </p>
+                                <div style="margin-top: 1rem;">
+                                    <span class="badge-custom badge-primary" style="margin-right: 0.5rem;">Yapay Zeka 101</span>
+                                    <span class="badge-custom badge-primary" style="margin-right: 0.5rem;">Veri Bilimi 101</span>
+                                    <span class="badge-custom badge-primary">Machine Learning Fundamentals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-edit me-2"></i>CV Bilgilerini Düzenle
+                                </h4>
+                                <form id="cvForm" class="needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Ad</label>
+                                        <input type="text" class="form-control" id="name" value="Ferhat" required>
+                                        <div class="invalid-feedback">Lütfen adınızı giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="surname" class="form-label">Soyad</label>
+                                        <input type="text" class="form-control" id="surname" value="Baydır" required>
+                                        <div class="invalid-feedback">Lütfen soyadınızı giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="department" class="form-label">Bölüm</label>
+                                        <select class="form-select" id="department" required>
+                                            <option value="">Seçiniz...</option>
+                                            <option value="Bilgisayar Mühendisliği" selected>Bilgisayar Mühendisliği</option>
+                                            <option value="Yazılım Mühendisliği">Yazılım Mühendisliği</option>
+                                            <option value="Elektrik-Elektronik Mühendisliği">Elektrik-Elektronik Mühendisliği</option>
+                                            <option value="Endüstri Mühendisliği">Endüstri Mühendisliği</option>
+                                        </select>
+                                        <div class="invalid-feedback">Lütfen bölümünüzü seçiniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">E-posta</label>
+                                        <input type="email" class="form-control" id="email" value="ferhat.baydir@mcbu.edu.tr" required>
+                                        <div class="invalid-feedback">Lütfen geçerli bir e-posta giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Telefon</label>
+                                        <input type="tel" class="form-control" id="phone" value="5551234567" required>
+                                        <div class="invalid-feedback">Lütfen telefon numaranızı giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="skills" class="form-label">Yetenekler</label>
+                                        <textarea class="form-control" id="skills" rows="3" required>Python, React, SQL, Flask, PostgreSQL, Git, Docker</textarea>
+                                        <div class="invalid-feedback">Lütfen yeteneklerinizi giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="certificates" class="form-label">Sertifikalar</label>
+                                        <textarea class="form-control" id="certificates" rows="3" required>Yapay Zeka 101 - Google AI
+Flutter ile Mobil Geliştirme - Udemy
+AWS Cloud Practitioner - Amazon
+Python for Data Science - Coursera
+Agile Project Management - Scrum.org</textarea>
+                                        <div class="invalid-feedback">Lütfen sertifikalarınızı giriniz.</div>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button type="submit" class="btn-custom btn-success-custom">
+                                            <i class="fas fa-save me-2"></i>Kaydet
+                                        </button>
+                                        <button type="button" class="btn-custom btn-primary-solid" onclick="loadSavedCV()">
+                                            <i class="fas fa-sync me-2"></i>Güncelle
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-eye me-2"></i>CV Önizleme
+                                </h4>
+                                <div id="cvPreview">
+                                    <div class="cv-card">
+                                        <div class="cv-section">
+                                            <h5><i class="fas fa-user me-2"></i>Kişisel Bilgiler</h5>
+                                            <p><strong>Ad Soyad:</strong> Ferhat Baydır</p>
+                                            <p><strong>Bölüm:</strong> Bilgisayar Mühendisliği</p>
+                                            <p><strong>E-posta:</strong> ferhat.baydir@mcbu.edu.tr</p>
+                                            <p><strong>Telefon:</strong> 5551234567</p>
+                                        </div>
+                                        <div class="cv-section">
+                                            <h5><i class="fas fa-code me-2"></i>Yetenekler</h5>
+                                            <p>Python, React, SQL, Flask, PostgreSQL, Git, Docker</p>
+                                        </div>
+                                        <div class="cv-section">
+                                            <h5><i class="fas fa-certificate me-2"></i>Sertifikalar</h5>
+                                            <div class="cv-item">Yapay Zeka 101 - Google AI</div>
+                                            <div class="cv-item">Flutter ile Mobil Geliştirme - Udemy</div>
+                                            <div class="cv-item">AWS Cloud Practitioner - Amazon</div>
+                                            <div class="cv-item">Python for Data Science - Coursera</div>
+                                            <div class="cv-item">Agile Project Management - Scrum.org</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     DERSLER
+                     ============================================ -->
+                <div class="tab-pane fade" id="courses" role="tabpanel">
+                    <div class="form-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fas fa-book me-2"></i>Mevcut Dersler
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Ders Adı</th>
+                                        <th>Akademisyen</th>
+                                        <th>Kontenjan</th>
+                                        <th>Durum</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Yapay Zeka Temelleri</td>
+                                        <td>Dr. Zeynep Çipiloğlu Yıldız</td>
+                                        <td>25 / 40</td>
+                                        <td><span class="badge-custom badge-success">Açık</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="applyCourse('Yapay Zeka Temelleri')">
+                                                <i class="fas fa-check"></i> Başvur
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobil Programlama</td>
+                                        <td>Dr. Volkan Altıntaş</td>
+                                        <td>18 / 35</td>
+                                        <td><span class="badge-custom badge-success">Açık</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="applyCourse('Mobil Programlama')">
+                                                <i class="fas fa-check"></i> Başvur
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veri Bilimi 101</td>
+                                        <td>Doç. Dr. Övünç Öztürk</td>
+                                        <td>30 / 30</td>
+                                        <td><span class="badge-custom badge-danger">Dolu</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-primary-solid btn-sm" disabled>
+                                                <i class="fas fa-times"></i> Dolu
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bulut Bilişim ve Servisler</td>
+                                        <td>Prof. Dr. Ahmet Kaya</td>
+                                        <td>12 / 30</td>
+                                        <td><span class="badge-custom badge-success">Açık</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="applyCourse('Bulut Bilişim ve Servisler')">
+                                                <i class="fas fa-check"></i> Başvur
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>IoT ve Gömülü Sistemler</td>
+                                        <td>Dr. Öğr. Üyesi Elif Demir</td>
+                                        <td>8 / 25</td>
+                                        <td><span class="badge-custom badge-success">Açık</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="applyCourse('IoT ve Gömülü Sistemler')">
+                                                <i class="fas fa-check"></i> Başvur
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 style="color: var(--primary-color); margin-top: 3rem; margin-bottom: 1.5rem;">
+                            <i class="fas fa-check-circle me-2"></i>Kayıtlı Olduğunuz Dersler
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Ders Adı</th>
+                                        <th>Akademisyen</th>
+                                        <th>Kayıt Tarihi</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Derin Öğrenme</td>
+                                        <td>Prof. Dr. Mehmet Arslan</td>
+                                        <td>15.09.2024</td>
+                                        <td>
+                                            <button class="btn-custom btn-danger-custom btn-sm" onclick="leaveCourse('Derin Öğrenme')">
+                                                <i class="fas fa-sign-out-alt"></i> Dersten Ayrıl
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Web Güvenliği</td>
+                                        <td>Dr. Ayşe Kılıç</td>
+                                        <td>18.09.2024</td>
+                                        <td>
+                                            <button class="btn-custom btn-danger-custom btn-sm" onclick="leaveCourse('Web Güvenliği')">
+                                                <i class="fas fa-sign-out-alt"></i> Dersten Ayrıl
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blockchain Teknolojileri</td>
+                                        <td>Doç. Dr. Can Yılmaz</td>
+                                        <td>20.09.2024</td>
+                                        <td>
+                                            <button class="btn-custom btn-danger-custom btn-sm" onclick="leaveCourse('Blockchain Teknolojileri')">
+                                                <i class="fas fa-sign-out-alt"></i> Dersten Ayrıl
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     STAJ BAŞVURUSU
+                     ============================================ -->
+                <div class="tab-pane fade" id="internship" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-paper-plane me-2"></i>Yeni Staj Başvurusu
+                                </h4>
+                                <form id="internshipApplicationForm" class="needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="company" class="form-label">Şirket Seçimi</label>
+                                        <select class="form-select" id="company" name="company" required>
+                                            <option value="">Seçiniz...</option>
+                                            <option value="TechLine Bilişim">TechLine Bilişim</option>
+                                            <option value="DataNova">DataNova</option>
+                                            <option value="SmartVision">SmartVision</option>
+                                            <option value="CodeCraft Solutions">CodeCraft Solutions</option>
+                                            <option value="DigitalWave">DigitalWave</option>
+                                        </select>
+                                        <div class="invalid-feedback">Lütfen bir şirket seçiniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="position" class="form-label">Pozisyon</label>
+                                        <input type="text" class="form-control" id="position" name="position" placeholder="Örn: Backend Developer" required>
+                                        <div class="invalid-feedback">Lütfen pozisyon giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="duration" class="form-label">Staj Süresi</label>
+                                        <select class="form-select" id="duration" name="duration" required>
+                                            <option value="">Seçiniz...</option>
+                                            <option value="1 Ay">1 Ay</option>
+                                            <option value="2 Ay">2 Ay</option>
+                                            <option value="3 Ay">3 Ay</option>
+                                            <option value="6 Ay">6 Ay</option>
+                                        </select>
+                                        <div class="invalid-feedback">Lütfen staj süresini seçiniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Ek Açıklama</label>
+                                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Neden bu pozisyon için uygun olduğunuzu açıklayın..." required></textarea>
+                                        <div class="invalid-feedback">Lütfen açıklama giriniz.</div>
+                                    </div>
+                                    <button type="submit" class="btn-custom btn-success-custom w-100">
+                                        <i class="fas fa-paper-plane me-2"></i>Başvuruyu Gönder
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-building me-2"></i>Mevcut Staj Fırsatları
+                                </h4>
+                                <div class="mb-3 card-custom" style="background-color: var(--background-color);">
+                                    <h5 style="color: var(--primary-color);">TechLine Bilişim</h5>
+                                    <p style="margin: 0.5rem 0;"><strong>Pozisyon:</strong> Backend Developer Stajyeri</p>
+                                    <p style="margin: 0.5rem 0;"><strong>Gereksinimler:</strong> Python, Flask, PostgreSQL</p>
+                                    <p style="margin: 0.5rem 0;"><strong>Süre:</strong> 3-6 Ay</p>
+                                    <span class="badge-custom badge-success">Açık Pozisyon</span>
+                                </div>
+                                <div class="mb-3 card-custom" style="background-color: var(--background-color);">
+                                    <h5 style="color: var(--primary-color);">DataNova</h5>
+                                    <p style="margin: 0.5rem 0;"><strong>Pozisyon:</strong> AI Assistant Intern</p>
+                                    <p style="margin: 0.5rem 0;"><strong>Gereksinimler:</strong> Python, Machine Learning, NLP</p>
+                                    <p style="margin: 0.5rem 0;"><strong>Süre:</strong> 6 Ay</p>
+                                    <span class="badge-custom badge-success">Açık Pozisyon</span>
+                                </div>
+                                <div class="mb-3 card-custom" style="background-color: var(--background-color);">
+                                    <h5 style="color: var(--primary-color);">SmartVision</h5>
+                                    <p style="margin: 0.5rem 0;"><strong>Pozisyon:</strong> Computer Vision Intern</p>
+                                    <p style="margin: 0.5rem 0;"><strong>Gereksinimler:</strong> OpenCV, TensorFlow, PyTorch</p>
+                                    <p style="margin: 0.5rem 0;"><strong>Süre:</strong> 3 Ay</p>
+                                    <span class="badge-custom badge-success">Açık Pozisyon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="form-custom">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                <i class="fas fa-history me-2"></i>Başvuru Geçmişi
+                            </h4>
+                            <div class="table-responsive">
+                                <table class="table table-custom">
+                                    <thead>
+                                        <tr>
+                                            <th>Şirket</th>
+                                            <th>Pozisyon</th>
+                                            <th>Başvuru Tarihi</th>
+                                            <th>Durum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>DataNova</td>
+                                            <td>Backend Stajyeri</td>
+                                            <td>28.10.2024</td>
+                                            <td><span class="badge-custom badge-warning">Değerlendiriliyor</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CodeCraft Solutions</td>
+                                            <td>Full Stack Developer</td>
+                                            <td>15.10.2024</td>
+                                            <td><span class="badge-custom badge-success">Kabul Edildi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DigitalWave</td>
+                                            <td>Frontend Developer</td>
+                                            <td>05.10.2024</td>
+                                            <td><span class="badge-custom badge-danger">Reddedildi</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     BİLDİRİMLER
+                     ============================================ -->
+                <div class="tab-pane fade" id="notifications" role="tabpanel">
+                    <div class="form-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fas fa-bell me-2"></i>Bildirimlerim
+                        </h4>
+                        
+                        <!-- Yeni Bildirimler -->
+                        <h5 style="color: var(--text-dark); margin-bottom: 1rem; font-weight: 600;">
+                            <i class="fas fa-star me-2" style="color: var(--accent-color);"></i>Yeni Bildirimler
+                        </h5>
+                        
+                        <!-- Bildirim 1: Ders Açıldı -->
+                        <div class="card-custom mb-3" style="border-left: 4px solid var(--accent-color);">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-color), #FFD700); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 700;">
+                                        Yeni Ders Açıldı: Yapay Zeka 101
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        Profilinize göre size önerilen "Yapay Zeka 101" dersi Dr. Zeynep Çipiloğlu Yıldız tarafından açıldı. 
+                                        Dersin kontenjanı sınırlıdır, hemen başvurun!
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small style="color: var(--text-light);">
+                                            <i class="fas fa-clock me-1"></i>2 saat önce
+                                        </small>
+                                        <button class="btn-custom btn-primary-solid btn-sm" onclick="applyCourse('Yapay Zeka 101')">
+                                            <i class="fas fa-arrow-right me-1"></i>Derse Git
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bildirim 2: CV Görüntüleme -->
+                        <div class="card-custom mb-3" style="border-left: 4px solid var(--success);">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--success), #229954); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 700;">
+                                        DataNova CV'nizi görüntüledi
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        DataNova şirketi "Veri Analitiği Stajyeri" pozisyonu için CV'nizi inceledi. 
+                                        Profiliniz gereksinimlere uygun bulundu.
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small style="color: var(--text-light);">
+                                            <i class="fas fa-clock me-1"></i>5 saat önce
+                                        </small>
+                                        <span class="badge-custom badge-success">İlginiz bekleniyor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bildirim 3: Başvuru Durumu -->
+                        <div class="card-custom mb-3" style="border-left: 4px solid var(--secondary-color);">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 700;">
+                                        Başvurunuz Değerlendiriliyor
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        CodeCraft Solutions firmasına yaptığınız "Full Stack Developer" başvurunuz inceleme aşamasında. 
+                                        Mülakat için size dönüş yapılacak.
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small style="color: var(--text-light);">
+                                            <i class="fas fa-clock me-1"></i>1 gün önce
+                                        </small>
+                                        <span class="badge-custom badge-warning">Değerlendiriliyor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Eski Bildirimler -->
+                        <h5 style="color: var(--text-dark); margin: 2rem 0 1rem; font-weight: 600;">
+                            <i class="fas fa-history me-2"></i>Eski Bildirimler
+                        </h5>
+
+                        <!-- Bildirim 4: Eşleşme Bildirimi -->
+                        <div class="card-custom mb-3" style="opacity: 0.8;">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 600;">
+                                        VeriTech ile Eşleştirildiniz
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        Sistem analizi sonucu VeriTech firmasıyla "Veri Bilimci Stajyeri" pozisyonu için eşleştirildiniz.
+                                    </p>
+                                    <small style="color: var(--text-light);">
+                                        <i class="fas fa-clock me-1"></i>3 gün önce
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bildirim 5: Sertifika -->
+                        <div class="card-custom mb-3" style="opacity: 0.8;">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-color), #FFD700); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 600;">
+                                        Sertifikanız Hazır
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        "Derin Öğrenme" dersi için sertifikanız oluşturuldu. CV'nize eklenmiştir.
+                                    </p>
+                                    <small style="color: var(--text-light);">
+                                        <i class="fas fa-clock me-1"></i>1 hafta önce
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn-custom btn-primary-solid" onclick="showToast('Tüm bildirimler okundu olarak işaretlendi', 'success')">
+                                <i class="fas fa-check-double me-2"></i>Tümünü Okundu İşaretle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    MCBÜ Career System
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Manisa Celal Bayar Üniversitesi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
+

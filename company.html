@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MCBÜ Şirket Portalı - Staj Talepleri, Aday CV İnceleme">
+    <title>Şirket Portalı - MCBÜ Kariyer Platformu</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="cbü_logo.png">
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="cbü_logo.png" alt="MCBÜ Logo">
+                Manisa Celal Bayar Üniversitesi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student.html">Öğrenci Portalı</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="company.html">Şirket Portalı</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="university.html">Üniversite Portalı</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Hakkında</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <section class="hero-section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center hero-content">
+                    <h1 class="hero-title" style="font-size: 2.5rem;">
+                        <i class="fas fa-building me-3"></i>Şirket Portalı
+                    </h1>
+                    <p class="hero-subtitle">Yetenekli stajyerler bulun, CV'leri inceleyin, başvuruları yönetin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ŞİRKET PROFİLİ
+         ============================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="profile-name">TechLine Bilişim</h3>
+                        <p class="profile-role">Yazılım ve Teknoloji</p>
+                        <p style="color: var(--text-light);">
+                            <i class="fas fa-envelope me-2"></i>info@techline.com.tr
+                        </p>
+                        <p style="color: var(--text-light);">
+                            <i class="fas fa-phone me-2"></i>+90 232 555 8899
+                        </p>
+                        <p style="color: var(--text-light);">
+                            <i class="fas fa-map-marker-alt me-2"></i>Manisa, Türkiye
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-chart-bar me-2"></i>Özet İstatistikler
+                        </h4>
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">8</div>
+                                <div style="color: var(--text-light);">Aktif İlan</div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">47</div>
+                                <div style="color: var(--text-light);">Başvuru</div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">12</div>
+                                <div style="color: var(--text-light);">Kabul Edilen</div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div style="font-size: 2rem; color: var(--accent-color); font-weight: 700;">5</div>
+                                <div style="color: var(--text-light);">Aktif Stajyer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 TAB MENÜ
+                 ============================================ -->
+            <ul class="nav nav-tabs" id="companyTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button">
+                        <i class="fas fa-clipboard-list me-2"></i>Staj Talepleri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="candidates-tab" data-bs-toggle="tab" data-bs-target="#candidates" type="button">
+                        <i class="fas fa-users me-2"></i>Aday CV'leri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="course-request-tab" data-bs-toggle="tab" data-bs-target="#course-request" type="button">
+                        <i class="fas fa-chalkboard-teacher me-2"></i>Kurs Talebi
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="actions-tab" data-bs-toggle="tab" data-bs-target="#actions" type="button">
+                        <i class="fas fa-tasks me-2"></i>Kabul/Red İşlemleri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="company-notifications-tab" data-bs-toggle="tab" data-bs-target="#company-notifications" type="button">
+                        <i class="fas fa-bell me-2"></i>Bildirimler
+                        <span class="badge bg-danger ms-1">2</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- ============================================
+                 TAB İÇERİKLERİ
+                 ============================================ -->
+            <div class="tab-content mt-4" id="companyTabsContent">
+                
+                <!-- ============================================
+                     STAJ TALEPLERİ
+                     ============================================ -->
+                <div class="tab-pane fade show active" id="requests" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-plus-circle me-2"></i>Yeni Staj Talebi Oluştur
+                                </h4>
+                                <form id="companyRequestForm" class="needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="position" class="form-label">Pozisyon Adı</label>
+                                        <input type="text" class="form-control" id="position" name="position" placeholder="Örn: Python Geliştirici Stajyeri" required>
+                                        <div class="invalid-feedback">Lütfen pozisyon adını giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Açıklama</label>
+                                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="İş tanımı ve gereksinimler..." required></textarea>
+                                        <div class="invalid-feedback">Lütfen açıklama giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="skills" class="form-label">Gereken Yetenekler</label>
+                                        <input type="text" class="form-control" id="skills" name="skills" placeholder="Örn: Flask, PostgreSQL, Git" required>
+                                        <div class="invalid-feedback">Lütfen gereken yetenekleri giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="duration" class="form-label">Staj Süresi</label>
+                                        <select class="form-select" id="duration" name="duration" required>
+                                            <option value="">Seçiniz...</option>
+                                            <option value="1 Ay">1 Ay</option>
+                                            <option value="2 Ay">2 Ay</option>
+                                            <option value="3 Ay">3 Ay</option>
+                                            <option value="6 Ay">6 Ay</option>
+                                        </select>
+                                        <div class="invalid-feedback">Lütfen staj süresini seçiniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="quota" class="form-label">Kontenjan</label>
+                                        <input type="number" class="form-control" id="quota" name="quota" min="1" max="20" value="1" required>
+                                        <div class="invalid-feedback">Lütfen kontenjan giriniz.</div>
+                                    </div>
+                                    <button type="submit" class="btn-custom btn-success-custom w-100">
+                                        <i class="fas fa-check me-2"></i>Talep Oluştur
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-list me-2"></i>Mevcut Staj İlanları
+                                </h4>
+                                <div class="table-responsive">
+                                    <table class="table table-custom">
+                                        <thead>
+                                            <tr>
+                                                <th>Pozisyon</th>
+                                                <th>Gereken Yetenekler</th>
+                                                <th>Süre</th>
+                                                <th>Kontenjan</th>
+                                                <th>Başvuru</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Backend Developer</strong></td>
+                                                <td>Python, Flask, PostgreSQL</td>
+                                                <td>3-6 Ay</td>
+                                                <td>3</td>
+                                                <td><span class="badge-custom badge-primary">15 Başvuru</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Frontend Developer</strong></td>
+                                                <td>React, TypeScript, CSS</td>
+                                                <td>3 Ay</td>
+                                                <td>2</td>
+                                                <td><span class="badge-custom badge-primary">8 Başvuru</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Mobile Developer</strong></td>
+                                                <td>Flutter, Dart, Firebase</td>
+                                                <td>6 Ay</td>
+                                                <td>2</td>
+                                                <td><span class="badge-custom badge-primary">12 Başvuru</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>DevOps Intern</strong></td>
+                                                <td>Docker, Kubernetes, CI/CD</td>
+                                                <td>3 Ay</td>
+                                                <td>1</td>
+                                                <td><span class="badge-custom badge-primary">5 Başvuru</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>UI/UX Designer</strong></td>
+                                                <td>Figma, Adobe XD, Sketch</td>
+                                                <td>2 Ay</td>
+                                                <td>1</td>
+                                                <td><span class="badge-custom badge-primary">7 Başvuru</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     ADAY CV'LERİ
+                     ============================================ -->
+                <div class="tab-pane fade" id="candidates" role="tabpanel">
+                    <div class="form-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fas fa-file-alt me-2"></i>Başvuran Adaylar
+                        </h4>
+                        <div class="row g-4">
+                            <!-- Aday 1 -->
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">
+                                            FB
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5 style="margin: 0; color: var(--primary-color);">Ferhat Baydır</h5>
+                                            <p style="margin: 0; color: var(--text-light); font-size: 0.9rem;">Bilgisayar Mühendisliği</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <strong style="color: var(--text-dark);">Yetenekler:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">Python, React, SQL, Flask, PostgreSQL, Git, Docker</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong style="color: var(--text-dark);">Sertifikalar:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">Yapay Zeka 101, Flutter ile Mobil Geliştirme, AWS Cloud Practitioner</p>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn-custom btn-primary-solid btn-sm" onclick="viewCV('Ferhat Baydır', 'Bilgisayar Mühendisliği', 'Python, React, SQL, Flask, PostgreSQL, Git, Docker', 'Yapay Zeka 101, Flutter ile Mobil Geliştirme, AWS Cloud Practitioner')">
+                                            <i class="fas fa-eye me-1"></i>CV Görüntüle
+                                        </button>
+                                        <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Ferhat Baydır')">
+                                            <i class="fas fa-check me-1"></i>Kabul Et
+                                        </button>
+                                        <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Ferhat Baydır')">
+                                            <i class="fas fa-times me-1"></i>Reddet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Aday 2 -->
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">
+                                            AZ
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5 style="margin: 0; color: var(--primary-color);">Ayşe Zambak</h5>
+                                            <p style="margin: 0; color: var(--text-light); font-size: 0.9rem;">Yazılım Mühendisliği</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <strong style="color: var(--text-dark);">Yetenekler:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">Flutter, Firebase, Dart, REST API, Git</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong style="color: var(--text-dark);">Sertifikalar:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">Mobil App Geliştirme, Google Firebase Essentials</p>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn-custom btn-primary-solid btn-sm" onclick="viewCV('Ayşe Zambak', 'Yazılım Mühendisliği', 'Flutter, Firebase, Dart, REST API, Git', 'Mobil App Geliştirme, Google Firebase Essentials')">
+                                            <i class="fas fa-eye me-1"></i>CV Görüntüle
+                                        </button>
+                                        <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Ayşe Zambak')">
+                                            <i class="fas fa-check me-1"></i>Kabul Et
+                                        </button>
+                                        <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Ayşe Zambak')">
+                                            <i class="fas fa-times me-1"></i>Reddet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Aday 3 -->
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">
+                                            MÖ
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5 style="margin: 0; color: var(--primary-color);">Mehmet Nuri Öğüt</h5>
+                                            <p style="margin: 0; color: var(--text-light); font-size: 0.9rem;">Bilgisayar Mühendisliği</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <strong style="color: var(--text-dark);">Yetenekler:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">C#, .NET, PostgreSQL, Azure, Entity Framework</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong style="color: var(--text-dark);">Sertifikalar:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">Veri Tabanı Uzmanlığı, Microsoft Azure Fundamentals</p>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn-custom btn-primary-solid btn-sm" onclick="viewCV('Mehmet Nuri Öğüt', 'Bilgisayar Mühendisliği', 'C#, .NET, PostgreSQL, Azure, Entity Framework', 'Veri Tabanı Uzmanlığı, Microsoft Azure Fundamentals')">
+                                            <i class="fas fa-eye me-1"></i>CV Görüntüle
+                                        </button>
+                                        <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Mehmet Nuri Öğüt')">
+                                            <i class="fas fa-check me-1"></i>Kabul Et
+                                        </button>
+                                        <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Mehmet Nuri Öğüt')">
+                                            <i class="fas fa-times me-1"></i>Reddet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Aday 4 -->
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">
+                                            ŞH
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5 style="margin: 0; color: var(--primary-color);">Şeyda Nur Halitoğlu</h5>
+                                            <p style="margin: 0; color: var(--text-light); font-size: 0.9rem;">Bilgisayar Mühendisliği</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <strong style="color: var(--text-dark);">Yetenekler:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">JavaScript, Node.js, React, MongoDB, Express</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong style="color: var(--text-dark);">Sertifikalar:</strong>
+                                        <p style="color: var(--text-light); margin: 0.5rem 0;">Full Stack Web Development, MERN Stack Developer</p>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn-custom btn-primary-solid btn-sm" onclick="viewCV('Şeyda Nur Halitoğlu', 'Bilgisayar Mühendisliği', 'JavaScript, Node.js, React, MongoDB, Express', 'Full Stack Web Development, MERN Stack Developer')">
+                                            <i class="fas fa-eye me-1"></i>CV Görüntüle
+                                        </button>
+                                        <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Şeyda Nur Halitoğlu')">
+                                            <i class="fas fa-check me-1"></i>Kabul Et
+                                        </button>
+                                        <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Şeyda Nur Halitoğlu')">
+                                            <i class="fas fa-times me-1"></i>Reddet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     KABUL/RED İŞLEMLERİ
+                     ============================================ -->
+                <div class="tab-pane fade" id="actions" role="tabpanel">
+                    <div class="form-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fas fa-clipboard-check me-2"></i>Başvuru Yönetimi
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Öğrenci Adı</th>
+                                        <th>Bölüm</th>
+                                        <th>Pozisyon</th>
+                                        <th>Başvuru Tarihi</th>
+                                        <th>Durum</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ferhat Baydır</td>
+                                        <td>Bilgisayar Müh.</td>
+                                        <td>Backend Developer</td>
+                                        <td>28.10.2024</td>
+                                        <td><span class="badge-custom badge-warning">Beklemede</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Ferhat Baydır')">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Ferhat Baydır')">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ayşe Zambak</td>
+                                        <td>Yazılım Müh.</td>
+                                        <td>Mobile Developer</td>
+                                        <td>25.10.2024</td>
+                                        <td><span class="badge-custom badge-warning">Beklemede</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Ayşe Zambak')">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Ayşe Zambak')">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mehmet Nuri Öğüt</td>
+                                        <td>Bilgisayar Müh.</td>
+                                        <td>Backend Developer</td>
+                                        <td>22.10.2024</td>
+                                        <td><span class="badge-custom badge-success">Kabul Edildi</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-primary-solid btn-sm" disabled>
+                                                <i class="fas fa-check"></i> İşlem Tamamlandı
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Şeyda Nur Halitoğlu</td>
+                                        <td>Bilgisayar Müh.</td>
+                                        <td>Frontend Developer</td>
+                                        <td>20.10.2024</td>
+                                        <td><span class="badge-custom badge-warning">Beklemede</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-success-custom btn-sm" onclick="acceptCandidate('Şeyda Nur Halitoğlu')">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="btn-custom btn-danger-custom btn-sm" onclick="rejectCandidate('Şeyda Nur Halitoğlu')">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ahmet Efe</td>
+                                        <td>Elektrik-Elektronik Müh.</td>
+                                        <td>DevOps Intern</td>
+                                        <td>18.10.2024</td>
+                                        <td><span class="badge-custom badge-danger">Reddedildi</span></td>
+                                        <td>
+                                            <button class="btn-custom btn-primary-solid btn-sm" disabled>
+                                                <i class="fas fa-times"></i> İşlem Tamamlandı
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     KURS TALEBİ
+                     ============================================ -->
+                <div class="tab-pane fade" id="course-request" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-plus-circle me-2"></i>Yeni Seçmeli Ders Talebi Oluştur
+                                </h4>
+                                <p style="color: var(--text-light); margin-bottom: 2rem;">
+                                    Şirketinizin ihtiyaçları doğrultusunda üniversiteden yeni bir seçmeli ders açılmasını talep edebilirsiniz.
+                                </p>
+                                <form id="courseRequestForm" class="needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="courseName" class="form-label">Ders Adı</label>
+                                        <input type="text" class="form-control" id="courseName" name="courseName" placeholder="Örn: Siber Güvenlik Temelleri" required>
+                                        <div class="invalid-feedback">Lütfen ders adını giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="courseContent" class="form-label">Kurs İçeriği</label>
+                                        <textarea class="form-control" id="courseContent" name="courseContent" rows="4" placeholder="Derste işlenecek konular ve hedefler..." required></textarea>
+                                        <div class="invalid-feedback">Lütfen kurs içeriğini giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="reason" class="form-label">Talep Nedeni</label>
+                                        <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="Bu dersin açılmasını neden talep ediyorsunuz?" required></textarea>
+                                        <div class="invalid-feedback">Lütfen talep nedeninizi giriniz.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="targetStudentCount" class="form-label">Hedef Öğrenci Sayısı</label>
+                                        <input type="number" class="form-control" id="targetStudentCount" name="targetStudentCount" min="10" max="50" value="30" required>
+                                        <div class="invalid-feedback">Lütfen hedef öğrenci sayısını giriniz.</div>
+                                    </div>
+                                    <button type="submit" class="btn-custom btn-success-custom w-100" onclick="showToast('Kurs talebi üniversiteye gönderildi', 'success')">
+                                        <i class="fas fa-paper-plane me-2"></i>Talebi Gönder
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-history me-2"></i>Gönderilen Kurs Talepleri
+                                </h4>
+                                
+                                <!-- Talep 1: Siber Güvenlik (Eylül/SecureNet) -->
+                                <div class="card-custom mb-3" style="border-left: 4px solid var(--accent-color);">
+                                    <h5 style="color: var(--primary-color); margin-bottom: 1rem;">Siber Güvenlik Temelleri</h5>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>İçerik:</strong> Ağ güvenliği, penetrasyon testleri, güvenlik protokolleri</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Neden:</strong> Şirketimizde siber güvenlik konusunda stajyer ihtiyacımız var</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Hedef Öğrenci:</strong> 30</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Talep Tarihi:</strong> 28.10.2024</p>
+                                    <span class="badge-custom badge-success">Onaylandı</span>
+                                </div>
+                                
+                                <!-- Talep 2: Yapay Zeka (Burak/DataNova) -->
+                                <div class="card-custom mb-3" style="border-left: 4px solid var(--secondary-color);">
+                                    <h5 style="color: var(--primary-color); margin-bottom: 1rem;">Yapay Zeka Seçmeli Dersi</h5>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>İçerik:</strong> Machine Learning, Deep Learning, NLP uygulamaları</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Neden:</strong> Veri analitiği ve AI stajyerleri için gerekli temel bilgiler</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Hedef Öğrenci:</strong> 40</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Talep Tarihi:</strong> 15.10.2024</p>
+                                    <span class="badge-custom badge-success">Onaylandı</span>
+                                </div>
+                                
+                                <!-- Talep 3: Dijital Pazarlama (Cem/DigiMarketing) -->
+                                <div class="card-custom mb-3" style="border-left: 4px solid var(--primary-color);">
+                                    <h5 style="color: var(--primary-color); margin-bottom: 1rem;">Dijital Pazarlama Stratejileri</h5>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>İçerik:</strong> SEO, SEM, Sosyal Medya Pazarlama, İçerik Stratejisi</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Neden:</strong> Dijital pazarlama alanında stajyer yetiştirmek istiyoruz</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Hedef Öğrenci:</strong> 25</p>
+                                    <p style="margin: 0.5rem 0; color: var(--text-dark);"><strong>Talep Tarihi:</strong> 10.10.2024</p>
+                                    <span class="badge-custom badge-warning">Değerlendiriliyor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     BİLDİRİMLER
+                     ============================================ -->
+                <div class="tab-pane fade" id="company-notifications" role="tabpanel">
+                    <div class="form-custom">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                            <i class="fas fa-bell me-2"></i>Bildirimler
+                        </h4>
+
+                        <!-- Bildirim 1: Ders Onayı -->
+                        <div class="card-custom mb-3" style="border-left: 4px solid var(--success);">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--success), #229954); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 700;">
+                                        Kurs Talebiniz Onaylandı
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        "Siber Güvenlik Temelleri" ders talebi üniversite tarafından onaylandı. 
+                                        Ders önümüzdeki dönemde açılacak ve öğrenciler kaydolabilecek.
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small style="color: var(--text-light);">
+                                            <i class="fas fa-clock me-1"></i>3 saat önce
+                                        </small>
+                                        <span class="badge-custom badge-success">Onaylandı</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bildirim 2: Yeni Başvuru -->
+                        <div class="card-custom mb-3" style="border-left: 4px solid var(--accent-color);">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-color), #FFD700); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 700;">
+                                        Yeni Başvuru Alındı
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        Sude Yılmaz "Veri Analitiği Stajyeri" pozisyonuna başvurdu. 
+                                        Profil yetenekleri: Dijital Pazarlama, Veri Analitiği, Yapay Zeka
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small style="color: var(--text-light);">
+                                            <i class="fas fa-clock me-1"></i>5 saat önce
+                                        </small>
+                                        <button class="btn-custom btn-primary-solid btn-sm" onclick="showToast('CV görüntüleniyor...', 'info')">
+                                            <i class="fas fa-eye me-1"></i>CV'yi İncele
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bildirim 3: Eşleşme Önerisi -->
+                        <div class="card-custom mb-3" style="border-left: 4px solid var(--secondary-color);">
+                            <div class="d-flex align-items-start">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0;">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 style="color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 700;">
+                                        Eşleşme Önerisi
+                                    </h6>
+                                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">
+                                        Deniz Kara öğrencisi profilinize %92 uyumlu. 
+                                        "Veri Bilimci Stajyeri" pozisyonunuz için ideal aday olabilir.
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small style="color: var(--text-light);">
+                                            <i class="fas fa-clock me-1"></i>1 gün önce
+                                        </small>
+                                        <span class="badge-custom badge-primary">%92 Uyum</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn-custom btn-primary-solid" onclick="showToast('Tüm bildirimler okundu olarak işaretlendi', 'success')">
+                                <i class="fas fa-check-double me-2"></i>Tümünü Okundu İşaretle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CV MODAL
+         ============================================ -->
+    <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cvModalLabel">
+                        <i class="fas fa-file-alt me-2"></i>CV Detayları
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cvModalBody">
+                    <!-- CV içeriği JavaScript ile doldurulacak -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-custom btn-primary-solid" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Kapat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    MCBÜ Career System
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Manisa Celal Bayar Üniversitesi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
+
