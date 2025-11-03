@@ -203,11 +203,23 @@ Platform, 4 ana senaryoya göre doldurulmuş gerçekçi veriler içerir:
 
 ## 🎯 JavaScript Özellikleri
 
+### Backend Simülasyonu (Object-Oriented)
+- **Student Class**: CV güncelleme, staj başvurusu, ders kaydı
+- **Company Class**: Staj ilanı, CV inceleme, ders talebi
+- **UniversityAdministration Class**: Ders oluşturma, talep onayı, eşleştirme
+- **Course Class**: Öğrenci ekleme, sertifika verme
+
+### Frontend Özellikleri
 - **Form Validasyonu**: Bootstrap 5 doğrulama sistemi
 - **LocalStorage**: CV verilerini yerel olarak saklama
 - **Modal Popup**: CV detaylarını gösterme
 - **Toast Bildirimleri**: Kullanıcı geri bildirimleri
-- **Dinamik İçerik**: JavaScript ile içerik güncelleme
+- **Senaryo Simülasyonları**: 4 ana senaryonun console'da test edilebilmesi
+  - `testAllScenarios()` - Tüm senaryoları çalıştır
+  - `simulateScenario1()` - Sude'nin hikayesi
+  - `simulateScenario2()` - Deniz'in hikayesi
+  - `simulateScenario3()` - Esin'in hikayesi
+  - `simulateScenario4()` - Derya'nın hikayesi
 
 ## 🌐 Tarayıcı Desteği
 
@@ -256,5 +268,22 @@ Platform, 4 ana senaryoya göre doldurulmuş gerçekçi veriler içerir:
 
 ---
 
-**MCBÜ Kariyer & Staj Platformu** - Eğitimde Dijital Dönüşüm ve Geleceğe Bağlantı 🎓
+**MCBÜ Career System** - Eğitimi ve İstihdamı Birleştiren Köprü 🎓
+
+## 🧪 Senaryo Testleri
+
+Browser console'unda (F12) aşağıdaki komutları çalıştırarak senaryoları test edebilirsiniz:
+
+```javascript
+// Tüm senaryoları çalıştır
+testAllScenarios()
+
+// Veya tek tek:
+simulateScenario1()  // Sude → DataNova
+simulateScenario2()  // Deniz → VeriTech  
+simulateScenario3()  // Esin → DigiMarketing
+simulateScenario4()  // Derya → Sertifika → SecureNet
+```
+
+Her senaryo console'a detaylı log çıktıları verir ve sistemin nasıl çalıştığını gösterir.
 
