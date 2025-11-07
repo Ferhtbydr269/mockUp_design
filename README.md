@@ -12,6 +12,7 @@ Bu platform, Manisa Celal Bayar Üniversitesi öğrencilerinin staj süreçlerin
 
 - **Öğrenci Portalı**: 
   - CV Yükleme & Güncelleme
+  - **CV Gönderimi Üniversiteye** (Sertifika doğrulama için)
   - **Otomatik Ders Önerileri** (AI destekli yetenek analizi)
   - Staj Başvurusu
   - Bildirim Sistemi
@@ -24,6 +25,7 @@ Bu platform, Manisa Celal Bayar Üniversitesi öğrencilerinin staj süreçlerin
   
 - **Üniversite Portalı**: 
   - Ders Yönetimi
+  - **CV Sertifika Kontrolü** (Öğrenci CV'lerindeki sertifikaları doğrulama)
   - **Sertifika Verme Sistemi**
   - Şirket Talep Onayı
   - Öğrenci-Şirket Eşleştirme
@@ -189,6 +191,13 @@ Platform, 4 ana senaryoya göre doldurulmuş gerçekçi veriler içerir:
 - Derya kursa kaydolur → Tamamlar → **Sertifika alır** 🎓
 - SecureNet'e "Siber Güvenlik Uzman Stajyeri" olarak işe alınır ✅
 
+### Senaryo 5: CV Gönderme ve Sertifika Kontrolü
+**Student → University İletişimi**
+- Öğrenciler CV'lerini üniversiteye gönderir
+- Üniversite sertifikaları otomatik kontrol eder
+- ✅ Onay / ⚠️ Uyarı / ❌ Red kararı verilir
+- Sertifika sayısına göre profil güvenilirliği belirlenir
+
 ### Diğer Karakterler
 - Ferhat Baydır, Ayşe Zambak, Mehmet Nuri Öğüt, Şeyda Nur Halitoğlu (Öğrenciler)
 - TechLine Bilişim, SmartVision, CodeCraft Solutions (Şirketler)
@@ -283,6 +292,7 @@ simulateScenario1()  // Sude → DataNova
 simulateScenario2()  // Deniz → VeriTech  
 simulateScenario3()  // Esin → DigiMarketing
 simulateScenario4()  // Derya → Sertifika → SecureNet
+simulateScenario5()  // CV Gönderme ve Sertifika Kontrolü
 ```
 
 Her senaryo console'a detaylı log çıktıları verir ve sistemin nasıl çalıştığını gösterir.

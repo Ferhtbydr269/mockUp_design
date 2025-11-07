@@ -138,6 +138,11 @@
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="cv-check-tab" data-bs-toggle="tab" data-bs-target="#cv-check" type="button">
+                        <i class="fas fa-certificate me-2"></i>CV Kontrolü
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
                     <button class="nav-link" id="university-notifications-tab" data-bs-toggle="tab" data-bs-target="#university-notifications" type="button">
                         <i class="fas fa-bell me-2"></i>Bildirimler
                         <span class="badge bg-danger ms-1">4</span>
@@ -634,6 +639,99 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================
+                     CV KONTROLÜ
+                     ============================================ -->
+                <div class="tab-pane fade" id="cv-check" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-search me-2"></i>Öğrenci CV'si Kontrol Et
+                                </h4>
+                                <p style="color: var(--text-light); margin-bottom: 2rem;">
+                                    Öğrencilerin gönderdiği CV'lerdeki sertifikaları doğrulayın.
+                                </p>
+                                
+                                <form id="cvCheckForm" class="needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="studentSelect" class="form-label">Öğrenci Seçin</label>
+                                        <select class="form-select" id="studentSelect" name="studentSelect" required>
+                                            <option value="">Seçiniz...</option>
+                                            <option value="sude">Sude Yılmaz - Bilgisayar Müh.</option>
+                                            <option value="deniz">Deniz Kara - Yazılım Müh.</option>
+                                            <option value="esin">Esin Aydın - İşletme</option>
+                                            <option value="derya">Derya Şahin - Bilgisayar Müh.</option>
+                                        </select>
+                                        <div class="invalid-feedback">Lütfen öğrenci seçiniz.</div>
+                                    </div>
+                                    <button type="button" class="btn-custom btn-primary-solid w-100" onclick="checkStudentCV()">
+                                        <i class="fas fa-check-circle me-2"></i>CV'yi Kontrol Et
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-custom">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                    <i class="fas fa-clipboard-check me-2"></i>Kontrol Sonucu
+                                </h4>
+                                <div id="cvCheckResult" style="min-height: 200px;">
+                                    <div class="text-center" style="padding: 3rem 0; color: var(--text-light);">
+                                        <i class="fas fa-file-alt" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                        <p>Kontrol sonucu burada görünecek</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="form-custom">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                                <i class="fas fa-history me-2"></i>Son Kontrol Edilen CV'ler
+                            </h4>
+                            <div class="table-responsive">
+                                <table class="table table-custom">
+                                    <thead>
+                                        <tr>
+                                            <th>Öğrenci Adı</th>
+                                            <th>Bölüm</th>
+                                            <th>Sertifika Sayısı</th>
+                                            <th>Kontrol Tarihi</th>
+                                            <th>Durum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cvCheckHistory">
+                                        <tr>
+                                            <td>Sude Yılmaz</td>
+                                            <td>Bilgisayar Müh.</td>
+                                            <td>2</td>
+                                            <td>07.11.2024</td>
+                                            <td><span class="badge-custom badge-success">Onaylandı</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Deniz Kara</td>
+                                            <td>Yazılım Müh.</td>
+                                            <td>1</td>
+                                            <td>06.11.2024</td>
+                                            <td><span class="badge-custom badge-success">Onaylandı</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mehmet Nuri Öğüt</td>
+                                            <td>Bilgisayar Müh.</td>
+                                            <td>0</td>
+                                            <td>05.11.2024</td>
+                                            <td><span class="badge-custom badge-warning">Uyarı</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

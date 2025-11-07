@@ -63,6 +63,11 @@ class Student {
         console.log(`${course.name} dersi dolu!`);
         return false;
     }
+
+    sendCVToSchool(university) {
+        console.log(`${this.name}, CV'sini üniversiteye gönderdi.`);
+        return university.receiveCVFromStudent(this);
+    }
 }
 
 // Company Class - Şirket nesnesi
@@ -191,6 +196,42 @@ class UniversityAdministration {
     sendNotification(recipient, message) {
         console.log(`Bildirim gönderildi: ${message}`);
         // Gerçek implementasyonda notification sistemi kullanılır
+    }
+
+    receiveCVFromStudent(student) {
+        console.log(`Üniversite, ${student.name}'in CV'sini aldı.`);
+        return this.checkCertificatesOfCV(student);
+    }
+
+    checkCertificatesOfCV(student) {
+        console.log(`\n=== CV Sertifika Kontrolü: ${student.name} ===`);
+        
+        if (!student.cv) {
+            console.log('❌ CV bulunamadı!');
+            return {
+                status: 'Reddedildi',
+                reason: 'CV yüklenmemiş'
+            };
+        }
+
+        if (student.certifications.length === 0) {
+            console.log('⚠️ Hiç sertifika yok!');
+            return {
+                status: 'Uyarı',
+                reason: 'Sertifika eksikliği'
+            };
+        }
+
+        console.log(`✅ ${student.certifications.length} adet sertifika doğrulandı:`);
+        student.certifications.forEach((cert, index) => {
+            console.log(`  ${index + 1}. ${cert}`);
+        });
+
+        return {
+            status: 'Onaylandı',
+            certificateCount: student.certifications.length,
+            certificates: student.certifications
+        };
     }
 }
 
@@ -392,6 +433,42 @@ function simulateScenario4() {
     
     students.derya.applyForInternship(companies.eylul, 'Siber Güvenlik Uzman Stajyeri');
     companies.eylul.acceptCandidate(students.derya, 'Siber Güvenlik Uzman Stajyeri');
+}
+
+// Scenario 5: Student sends CV to School → School checks certificates
+function simulateScenario5() {
+    console.log('\n=== SENARYO 5: CV Gönderme ve Sertifika Kontrolü ===');
+    
+    // Sude CV'sini günceller
+    students.sude.updateCV({
+        name: 'Sude Yılmaz',
+        skills: students.sude.skills,
+        certifications: students.sude.certifications
+    });
+    
+    // Sude CV'sini üniversiteye gönderir
+    const result1 = students.sude.sendCVToSchool(university);
+    console.log(`Kontrol Sonucu: ${result1.status}`);
+    
+    // Deniz CV'sini gönderir
+    students.deniz.updateCV({
+        name: 'Deniz Kara',
+        skills: students.deniz.skills,
+        certifications: students.deniz.certifications
+    });
+    const result2 = students.deniz.sendCVToSchool(university);
+    console.log(`Kontrol Sonucu: ${result2.status}`);
+    
+    // Ferhat (sertifikası olmayan bir öğrenci) test
+    const ferhat = new Student('Ferhat Baydır', '220316040', 'Bilgisayar Mühendisliği',
+        ['Python', 'React', 'SQL'], []);
+    ferhat.updateCV({
+        name: 'Ferhat Baydır',
+        skills: ferhat.skills,
+        certifications: ferhat.certifications
+    });
+    const result3 = ferhat.sendCVToSchool(university);
+    console.log(`Kontrol Sonucu: ${result3.status} - ${result3.reason}`);
 }
 
 // ============================================
@@ -664,6 +741,117 @@ function rejectCandidate(studentName) {
 }
 
 // ============================================
+// CV GÖNDERİMİ VE KONTROL İŞLEMLERİ
+// ============================================
+function sendCVToUniversity() {
+    const savedCV = localStorage.getItem('studentCV');
+    
+    if (!savedCV) {
+        showToast('Lütfen önce CV bilgilerinizi kaydedin!', 'warning');
+        return;
+    }
+    
+    const cvData = JSON.parse(savedCV);
+    
+    // Simüle edilmiş öğrenci oluştur
+    const currentStudent = new Student(
+        cvData.name + ' ' + cvData.surname,
+        '220316040',
+        cvData.department,
+        cvData.skills.split(',').map(s => s.trim()),
+        cvData.certificates.split('\n').filter(c => c.trim() !== '')
+    );
+    
+    currentStudent.cv = cvData;
+    
+    // CV'yi üniversiteye gönder
+    const result = currentStudent.sendCVToSchool(university);
+    
+    // Sonucu göster
+    if (result.status === 'Onaylandı') {
+        showToast(`✅ CV'niz üniversiteye gönderildi ve onaylandı! ${result.certificateCount} sertifika doğrulandı.`, 'success');
+    } else if (result.status === 'Uyarı') {
+        showToast(`⚠️ CV gönderildi ancak sertifika eksikliği var!`, 'warning');
+    } else {
+        showToast(`❌ CV reddedildi: ${result.reason}`, 'error');
+    }
+    
+    console.log('CV Kontrol Sonucu:', result);
+}
+
+function checkStudentCV() {
+    const studentSelect = document.getElementById('studentSelect');
+    
+    if (!studentSelect || !studentSelect.value) {
+        showToast('Lütfen bir öğrenci seçin!', 'warning');
+        return;
+    }
+    
+    const studentKey = studentSelect.value;
+    const student = window.students[studentKey];
+    
+    if (!student) {
+        showToast('Öğrenci bulunamadı!', 'error');
+        return;
+    }
+    
+    // CV'yi kontrol et
+    const result = university.checkCertificatesOfCV(student);
+    
+    // Sonucu ekranda göster
+    const resultDiv = document.getElementById('cvCheckResult');
+    
+    if (result.status === 'Onaylandı') {
+        resultDiv.innerHTML = `
+            <div class="card-custom" style="background: linear-gradient(135deg, #27AE60, #229954); color: white;">
+                <div style="text-align: center;">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                    <h4 style="color: white; margin-bottom: 1rem;">CV Onaylandı!</h4>
+                    <p style="margin-bottom: 1.5rem;"><strong>${student.name}</strong></p>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                        <p style="margin: 0;"><strong>Sertifika Sayısı:</strong> ${result.certificateCount}</p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.3); margin: 1.5rem 0;">
+                <div>
+                    <h6 style="color: white; margin-bottom: 1rem;"><i class="fas fa-certificate me-2"></i>Doğrulanan Sertifikalar:</h6>
+                    ${result.certificates.map((cert, idx) => `
+                        <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+                            <i class="fas fa-check me-2"></i>${idx + 1}. ${cert}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        showToast(`✅ ${student.name} CV'si onaylandı!`, 'success');
+    } else if (result.status === 'Uyarı') {
+        resultDiv.innerHTML = `
+            <div class="card-custom" style="background: linear-gradient(135deg, #F5C518, #FFD700); color: var(--text-dark);">
+                <div style="text-align: center;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                    <h4 style="color: var(--text-dark); margin-bottom: 1rem;">Uyarı!</h4>
+                    <p style="margin-bottom: 1rem;"><strong>${student.name}</strong></p>
+                    <p>${result.reason}</p>
+                </div>
+            </div>
+        `;
+        showToast(`⚠️ ${student.name} - ${result.reason}`, 'warning');
+    } else {
+        resultDiv.innerHTML = `
+            <div class="card-custom" style="background: linear-gradient(135deg, #E74C3C, #C0392B); color: white;">
+                <div style="text-align: center;">
+                    <i class="fas fa-times-circle" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                    <h4 style="color: white; margin-bottom: 1rem;">CV Reddedildi</h4>
+                    <p style="margin-bottom: 1rem;"><strong>${student.name}</strong></p>
+                    <p>${result.reason}</p>
+                </div>
+            </div>
+        `;
+        showToast(`❌ ${student.name} - ${result.reason}`, 'error');
+    }
+}
+
+// ============================================
 // ÜNİVERSİTE TALEP İŞLEMLERİ
 // ============================================
 function approveRequest(companyName, position) {
@@ -820,6 +1008,7 @@ function testAllScenarios() {
     setTimeout(() => simulateScenario2(), 1000);
     setTimeout(() => simulateScenario3(), 2000);
     setTimeout(() => simulateScenario4(), 3000);
+    setTimeout(() => simulateScenario5(), 4000);
     showToast('Tüm senaryolar konsola yazdırıldı! (F12 ile kontrol edin)', 'success');
 }
 
@@ -834,11 +1023,14 @@ window.rejectCandidate = rejectCandidate;
 window.approveRequest = approveRequest;
 window.rejectRequest = rejectRequest;
 window.showToast = showToast;
+window.sendCVToUniversity = sendCVToUniversity;
+window.checkStudentCV = checkStudentCV;
 window.testAllScenarios = testAllScenarios;
 window.simulateScenario1 = simulateScenario1;
 window.simulateScenario2 = simulateScenario2;
 window.simulateScenario3 = simulateScenario3;
 window.simulateScenario4 = simulateScenario4;
+window.simulateScenario5 = simulateScenario5;
 
 // Mock data'yı global scope'a ekle
 window.students = students;
